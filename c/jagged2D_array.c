@@ -36,7 +36,7 @@ void addLineSeparator(){
 }
 
 void printarray(int **arr2d,int *col_size_ptr,int r){
-    int i=0,j=0;
+    int i,j;
     for(i=0;i<r;i++){
         for(j=0;j<col_size_ptr[i];j++){
             printf("%d ",*(*(arr2d+i)+j));

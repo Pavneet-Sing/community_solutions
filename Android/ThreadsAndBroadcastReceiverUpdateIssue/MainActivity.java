@@ -20,13 +20,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mytxtView = (TextView) findViewById(R.id.mytxtView);
-        mytxtView.setText("Value 1");
+        mytxtView.setText("Value 1");        
         Thread thread1 = new Thread(new Thread1());
         thread1.start();
+        // inefficent creation onextra threads should use everywhere
+        // new Thread1().start();
+        //  or implement Runnable instead of entends thread
     }
 
     public void onResume() {
-
         super.onResume();
         registerReceiver(myReceiver, new IntentFilter("android.provider.Telephony.SOME_TELEPHONY_INTENT_ACTION"));
         // trigger the broadcast to to execute onReceive method using sendBroadcast(yourBroadcastIntent)
@@ -66,4 +68,12 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     };
+    
+    @Override
+    protected void onStop() {
+        super.onStop();
+        //  Don't forget to unregister the receiver
+        unregisterReceiver(myReceiver);
+    }
+
 }

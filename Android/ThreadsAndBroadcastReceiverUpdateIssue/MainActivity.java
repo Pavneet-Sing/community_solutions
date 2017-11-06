@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         thread1.start();
         // inefficent creation onextra threads should use everywhere
         // new Thread1().start();
-        //  or implement Runnable instead of entends thread
+        //  or implement Runnable instead of extends thread
     }
 
     public void onResume() {

@@ -13,14 +13,14 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
 
-    TextView mytxtView; //Use to bind a TextView from UI layout
+    TextView myTxtView; //Use to bind a TextView from UI layout
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mytxtView = (TextView) findViewById(R.id.mytxtView);
-        mytxtView.setText("Value 1");        
+        myTxtView = (TextView) findViewById(R.id.mytxtView);
+        myTxtView.setText("Value 1");        
         Thread thread1 = new Thread(new Thread1());
         thread1.start();
         // inefficent creation onextra threads should use everywhere
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            Toast.makeText(getApplicationContext(), mytxtView.getText(), Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), myTxtView.getText(), Toast.LENGTH_LONG).show();
             Looper.loop();
         }
     }
@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
             if (intent.getAction().
                     equals("android.provider.Telephony.SOME_TELEPHONY_INTENT_ACTION")) {
                 //do some work
-                        mytxtView.setText("Value 2");
+                        myTxtView.setText("Value 2");
             }
         }
     };

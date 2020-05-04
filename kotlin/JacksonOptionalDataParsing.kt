@@ -30,7 +30,6 @@ class JacksonOptionalDataParsing {
                 <TABLES>
                     <TABLE NAME="abcd" TIME="2013.05.27 00:00:00" >
                         <SPECIAL>
-                            <DAY MASK="128" DATE="16714778" />
                             <WEEK NAME="abcde" PARAM="128" />
                         </SPECIAL> 
                     </TABLE>
@@ -53,8 +52,8 @@ data class TABLE(
 )
 
 data class SPECIAL(
-    @JacksonXmlProperty(localName = "WEEK") var week: WEEK,
-    @JacksonXmlProperty(localName = "DAY") var day: DAY
+    @JacksonXmlProperty(localName = "WEEK") var week: WEEK?,
+    @JacksonXmlProperty(localName = "DAY") var day: DAY?
 )
 
 data class DAY(
